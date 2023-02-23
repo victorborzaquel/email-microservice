@@ -26,3 +26,7 @@ spring:
             required: true
           ssl:
             trust: smtp.gmail.com
+  rabbitmq:
+    addresses: ${AMQP_URL}
+    template:
+      default-receive-queue: ms.email
