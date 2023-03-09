@@ -25,7 +25,7 @@ public class EmailService {
     private final JavaMailSender emailSender;
 
     @Transactional
-    public Email sendEmail(Email email) {
+    public void sendEmail(Email email) {
         email.setSendDateEmail(LocalDateTime.now());
 
         try {
@@ -42,7 +42,7 @@ public class EmailService {
         } catch (MailException e) {
             email.setStatusEmail(StatusEmail.ERROR);
         } finally {
-            return repositirory.save(email);
+            repositirory.save(email);
         }
     }
 
